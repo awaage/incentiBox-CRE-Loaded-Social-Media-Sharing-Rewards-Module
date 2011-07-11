@@ -1,4 +1,4 @@
-# CREloaded Module - incentiBox Social media login & sharing rewards module
+# CREloaded Module - incentiBox social media login & sharing rewards module
 	
     # Version:  1.0
     # Created: 2011-07-10
