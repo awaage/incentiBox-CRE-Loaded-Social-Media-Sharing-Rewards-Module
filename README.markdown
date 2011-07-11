@@ -22,4 +22,4 @@ Coupon codes are auto-generated, and show up in the admin > coupons panel. Coupo
 
 Example: Give users $5 off any order, for spreading the word about your products with their social network. You gain word-of-mouth advertising, AND generate a sale when the user redeems their store credit!
 
-Notes: This extension has been tested with CREloaded. This plugin interfaces with incentiBox, and communicates through the incentiBox API. For more information, and to sign up for incentiBox for API access, please see [www.incentibox.com/?ref=github2|www.incentiBox.com].
+Notes: This extension has been tested with CREloaded. This plugin interfaces with incentiBox, and communicates through the incentiBox API. For more information, and to sign up for incentiBox for API access, please see [http://www.incentibox.com/?ref=github2|www.incentiBox.com].
