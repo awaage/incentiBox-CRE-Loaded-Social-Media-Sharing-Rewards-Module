@@ -42,7 +42,6 @@ class incentibox {
 			'INCENTIBOX_PROGRAM_ID',
 			'INCENTIBOX_API_USER',
 			'INCENTIBOX_API_PASSWORD',
-			'INCENTIBOX_COUPON_ORDER_MINIMUM',
 			'INCENTIBOX_COUPON_EXPIRES_DAYS'
 			);
 	}
@@ -53,7 +52,6 @@ class incentibox {
 		tep_db_query("INSERT IGNORE INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES ('', 'incentiBox Program ID', 'INCENTIBOX_PROGRAM_ID', '', 'Enter your incentiBox program_id', '811', '102', now(), now(), NULL, NULL )");
 		tep_db_query("INSERT IGNORE INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES ('', 'incentiBox API User Name', 'INCENTIBOX_API_USER', '', 'Enter your incentiBox API username', '811', '103', now(), now(), NULL, NULL )");
 		tep_db_query("INSERT IGNORE INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES ('', 'incentiBox API Password', 'INCENTIBOX_API_PASSWORD', '', 'Enter your incentiBox API password', '811', '104', now(), now(), NULL, NULL )");
-		tep_db_query("INSERT IGNORE INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES ('', 'Coupon Order Minimum ($)', 'INCENTIBOX_COUPON_ORDER_MINIMUM', '20.00', 'Enter your minimum order amount for coupons (default 20.00)', '811', '105', now(), now(), NULL, NULL )");
 		tep_db_query("INSERT IGNORE INTO `configuration` (`configuration_id`, `configuration_title`, `configuration_key`, `configuration_value`, `configuration_description`, `configuration_group_id`, `sort_order`, `last_modified`, `date_added`, `use_function`, `set_function`) VALUES ('', 'Coupon Expires in (days)', 'INCENTIBOX_COUPON_EXPIRES_DAYS', '30', 'Enter the number of days until coupons expire (default 30)', '811', '104', now(), now(), NULL, NULL )");
 
 		// Creates incentibox_coupons table if it doesn't already exist
@@ -63,6 +61,7 @@ class incentibox {
 			incentibox_coupon_id int(11) NOT NULL DEFAULT 0,
 			coupon_code varchar(32) NOT NULL DEFAULT '',
 			coupon_amount decimal(8,4) NOT NULL DEFAULT '0.0000',
+			order_minimum decimal(8,4) NOT NULL DEFAULT '0.0000',
 			date_redeemed datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
 			emailed_to varchar(128) DEFAULT NULL,
 			date_created datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
