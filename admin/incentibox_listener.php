@@ -16,7 +16,7 @@ $VERBOSE = false;
 // Check that either we are running via command line or that ib_run param exists 
 if (empty($_GET["ib_run"])){
 	header("HTTP/1.0 500 Internal Server Error");
-	header("incentiBoxSuccess = FALSE");
+	header("incentiBoxSuccess: FALSE");
 	exit();
 }
 require('../includes/application_top.php');
@@ -53,7 +53,7 @@ if ($VERBOSE) echo "Done \n";
 
 
 header("HTTP/1.0 200 OK");
-header("incentiBoxSuccess = TRUE");
+header("incentiBoxSuccess: TRUE");
 exit;
 
 
