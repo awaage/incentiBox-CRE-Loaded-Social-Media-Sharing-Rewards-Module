@@ -11,7 +11,7 @@
   Released under the GNU General Public License
 
 */
-$VERBOSE = true;
+$VERBOSE = false;
 
 // Check that either we are running via command line or that ib_run param exists 
 if (empty($_GET["ib_run"])){
