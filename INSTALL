@@ -1,0 +1,11 @@
+# CREloaded Module - incentiBox social media login & sharing rewards module
+	
+    # Version:  1.0
+    # Created: 2011-07-10
+
+## CRE Loaded Installation:
+
+    0. BACKUP files and database !
+    1. Install all files into the corresponding directories
+    2. Add the following RCI include in /admin/index.php (~ Line 141: under the newsfeed table) 
+        <?php echo $cre_RCI->get('index', 'rightcolumn');  ?>
