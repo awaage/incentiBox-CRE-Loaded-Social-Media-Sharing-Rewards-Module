@@ -15,7 +15,11 @@ This has been tested in CREloaded 6.2 and greater and should also work with any 
 
 ## Description: 
 
-The social media login & sharing rewards module is a plugin enables users to sign in to your CREloaded store via Facebook account, and incentivizes your customers and site-visitors to "like" your Facebook page, and share your products with their friends via social media (Facebook, Twitter, Tumblr, and 300+ others). In return, your customers will receive store credit, redeemable only at your store!
+The incentiBox Social Media Sharing Rewards module transforms ordinary customers into word-of-mouth brand advocates!
+
+Incentivize customers to share your products on their social networks (Facebook wall posts, Tweets, blog posts, etc.) and to "like" your Facebook page. In return, your customers are rewarded with store credit, redeemable only at your store.
+
+Incentivized sharing is a great way to generate sales and increase brand awareness for your CRE Loaded store!
 
 Coupon codes are auto-generated, and show up in the admin > coupons panel. Coupon codes and rewards program emails are completely customizable, as is the look and feel of the widget. The widget is collapsible, and can hover on the side of your store, to remind users of your rewards program. 
 
