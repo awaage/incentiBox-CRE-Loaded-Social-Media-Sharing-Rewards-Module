@@ -11,7 +11,7 @@
   Released under the GNU General Public License
 
 */
-$VERBOSE = false;
+$VERBOSE = true;
 
 // Check that either we are running via command line or that ib_run param exists 
 if (empty($_GET["ib_run"])){
@@ -39,7 +39,7 @@ if ($VERBOSE) echo "Connecting to IncentiBox API. \n";
 $incentibox_client = new IncentiboxApi(INCENTIBOX_API_USER, INCENTIBOX_API_PASSWORD);
 // returns all the redeemed_rewards for this program 
 $new_rewards_array = $incentibox_client->get_redeemed_rewards(INCENTIBOX_PROGRAM_ID, $last_coupon_id);
-
+if ($VERBOSE) echo "Found [" . count($new_rewards_array) . "] new entries. \n";
 
 // 3. Update redeemed_rewards table with new entries
 update_incentibox_coupons($new_rewards_array);
@@ -67,7 +67,6 @@ function create_new_coupons(){
 	$uses_per_user = 1; 	// default 0
 	$coupon_active = 'Y'; 	// default 'Y'
 	$coupon_expires_in_days = INCENTIBOX_COUPON_EXPIRES_DAYS;
-	$coupon_minimum_order = INCENTIBOX_COUPON_MINIMUM;
 	// TABLE_COUPON_EMAIL_TRACK fields
 	$sender_firstname = 'IncentiBox Rewards'; 
 	$sender_id = 0;      	// Can be replaced by actual admin id; for now, use 0
@@ -80,7 +79,7 @@ function create_new_coupons(){
 			$coupon['coupon_code'],
 			$coupon_type,
 			$coupon['coupon_amount'],
-			$coupon_minimum_order,
+			$coupon['order_minimum'],
 			$coupon_expires_in_days,
 			$uses_per_coupon,
 			$uses_per_user,
@@ -104,10 +103,11 @@ function create_new_coupons(){
 // Adds each new coupon to the incentibox_coupons table
 function update_incentibox_coupons($new_rewards_array){
 	foreach($new_rewards_array as $c_idx => $coupon){
-		$insert_query = sprintf("INSERT INTO incentibox_coupons (incentibox_coupon_id, coupon_code, coupon_amount, date_redeemed, emailed_to, date_created) VALUES ('%s', '%s', '%s', '%s', '%s', now())", 
+		$insert_query = sprintf("INSERT INTO incentibox_coupons (incentibox_coupon_id, coupon_code, coupon_amount, order_minimum, date_redeemed, emailed_to, date_created) VALUES ('%s', '%s', '%s', '%s', '%s', '%s', now())", 
 			mysql_real_escape_string($coupon['id']),
 			mysql_real_escape_string($coupon['code']),
 			mysql_real_escape_string($coupon['amount']),
+			mysql_real_escape_string($coupon['order_minimum']),
 			date('Y-m-d H:i:s', strtotime($coupon['redeemed_at'])),
 			mysql_real_escape_string($coupon['email'])
 			);
