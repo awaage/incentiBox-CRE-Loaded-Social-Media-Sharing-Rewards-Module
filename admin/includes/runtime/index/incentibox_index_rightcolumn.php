@@ -24,12 +24,13 @@ if (!defined(INCENTIBOX_PROGRAM_ID) || INCENTIBOX_PROGRAM_ID=='') {
 				<img src="images/incentiBox_logo.png" style='width:95px; height:20px; display:block;margin:10px auto;' />
 				
 				<div style='width:100%; text-align:center; font-weight:bold'>Social Media Sharing Rewards Module</div> 
-				<ul style='padding:0px;margin:5px 0px 0px 6px;'>
-					<li>Customers sign in via Facebook account</li>
-					<li>Customers are incentivized to "like" your Facebook page</li>
-					<li>Customers share your products with their friends via social media (Facebook, Twitter, Tumblr, and 300+ others)</li>
-					<li>In return, customers receive store credit, redeemable only at your store! </li>
+				<ul style='padding:0px;margin:5px 0px 0px 6px;list-style-type:disc; font-size:10px'>
+					<li>Transform ordinary customers into word-of-mouth brand advocates</li>
+					<li>Incentivize customers to share your products on their social networks (Facebook wall posts, Tweets, blog posts, etc.)</li>
+					<li>Generate Facebook likes and increase brand awareness</li>
 				</ul>
+				<div style='margin-top:6px;'>In return, customers receive store credit, <strong>redeemable only at your store</strong>! </div>
+				
 				
 				<br />
 				<div style='width:100%; text-align:center; font-weight:bold'>
