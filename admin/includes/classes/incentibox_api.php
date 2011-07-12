@@ -79,8 +79,8 @@ class IncentiboxApi {
 		$errorMessage = curl_error($curl);
 		$http_status_code = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
-		if ($errorNumber) {
-		   $response = 'cURL ERROR: ' . $errorNumber . " " . curl_error($curl);
+		if ($errorNumber != 0) {
+		   $response = 'cURL ERROR: [' . $errorNumber . "] " . $errorMessage;
 		}
 		// close
 		curl_close($curl);
