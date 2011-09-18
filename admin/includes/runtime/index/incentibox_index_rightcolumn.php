@@ -10,7 +10,7 @@
 
   Released under the GNU General Public License
 */
-if (!defined(INCENTIBOX_PROGRAM_ID) || INCENTIBOX_PROGRAM_ID=='') {
+if ((!defined(INCENTIBOX_PROGRAM_ID) && MODULE_ADDONS_INCENTIBOX_STATUS != 'True') || (INCENTIBOX_PROGRAM_ID == '' && MODULE_ADDONS_INCENTIBOX_STATUS == 'True')) {
 ?>
 	<table border="0" cellpadding="0" cellspacing="0" width="100%" style="margin-top: 1em;">
 		<tr>
@@ -21,7 +21,7 @@ if (!defined(INCENTIBOX_PROGRAM_ID) || INCENTIBOX_PROGRAM_ID=='') {
 
 		<tr>
 			<td class="box-left">&nbsp;</td><td class="box-content">
-				<img src="images/incentiBox_logo.png" style='width:95px; height:20px; display:block;margin:10px auto;' />
+				<img src="../images/incentiBox_logo.png" style='width:95px; height:20px; display:block;margin:0 auto 10px auto;' />
 				
 				<div style='width:100%; text-align:center; font-weight:bold'>Social Media Sharing Rewards Module</div> 
 				<ul style='padding:0px;margin:5px 0px 0px 6px;list-style-type:disc; font-size:10px'>
@@ -34,7 +34,11 @@ if (!defined(INCENTIBOX_PROGRAM_ID) || INCENTIBOX_PROGRAM_ID=='') {
 				
 				<br />
 				<div style='width:100%; text-align:center; font-weight:bold'>
-					<a href='/admin/modules.php?set=addons&module=incentibox'>Enable this module</a>
+      <?php if (!defined(MODULE_ADDONS_INCENTIBOX_STATUS) || MODULE_ADDONS_INCENTIBOX_STATUS != 'True') { ?>
+					 <a href='modules.php?set=addons&module=incentibox&action=install'>Enable This Module</a>
+      <?php } else { ?>
+      <a href='modules.php?set=addons&module=incentibox&action=edit'>Enter Module Details</a>
+      <?php } ?>
 				</div>
 				</td>
 				<td class="box-right">&nbsp;</td>
