@@ -19,7 +19,30 @@ if (empty($_GET["ib_run"])){
 	header("incentiBoxSuccess: FALSE");
 	exit();
 }
-require('../includes/application_top.php');
+
+// require('../includes/application_top.php');
+
+// Include application configuration parameters
+require('includes/configure.php');
+define('DIR_FS_INCLUDES', DIR_FS_ADMIN . DIR_WS_INCLUDES);
+define('DIR_FS_FUNCTIONS', DIR_FS_ADMIN . DIR_WS_FUNCTIONS);
+ 
+// include the list of project database tables
+require(DIR_FS_INCLUDES . 'database_tables.php');
+// include select functions
+require(DIR_FS_FUNCTIONS . 'database.php');
+
+// make a connection to the database
+tep_db_connect() or die('Unable to connect to database server!');
+
+// set application wide parameters
+$configuration_query = tep_db_query('select configuration_key as cfgKey, configuration_value as cfgValue from ' . TABLE_CONFIGURATION);
+while ($configuration = tep_db_fetch_array($configuration_query)) {
+	if (!defined($configuration['cfgKey'])) { 
+		define($configuration['cfgKey'], $configuration['cfgValue']);
+	}
+}
+
 require_once(DIR_WS_CLASSES . 'incentibox_api.php');
 	
 /* Here's the plan:
